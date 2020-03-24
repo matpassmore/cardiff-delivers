@@ -31,7 +31,7 @@ var TableFilter = (function () {
     var writer = input.getAttribute("data-count");
     if (writer) {
       // If there is a data-count attribute, we count visible rows
-      var count = rows.reduce(function (t, x) { return t + (x.style.display === "none" ? 0 : 1); }, 0);
+      var count = rows.reduce(function (t, x) { return t + (x.classList.contains('hide-row') ? 0 : 1); }, 0);
       // Then we display the counter
       dquery(writer)[0].textContent = count;
     }
@@ -43,7 +43,14 @@ var TableFilter = (function () {
       row.lowerTextContent = row.textContent.toLocaleLowerCase();
 
     // Hide the line if it does not contain the search text
-    row.style.display = row.lowerTextContent.indexOf(search) === -1 ? "none" : "table-row";
+    // row.style.display = row.lowerTextContent.indexOf(search) === -1 ? "none" : "table-row";
+    if (row.lowerTextContent.indexOf(search) === -1) {
+      row.classList.remove('show-row'); 
+      row.classList.add('hide-row');
+    } else {
+      row.classList.remove('hide-row');
+      row.classList.add('show-row'); 
+    }
   }
 
   return {
