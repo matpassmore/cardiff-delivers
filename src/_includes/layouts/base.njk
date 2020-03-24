@@ -36,10 +36,12 @@
       </nav>
     </header>
 
-    <main class="o-wrapper">
-      {% block content %}
-      {{ content | safe }}
-      {% endblock %} 
+    <main>
+      <div class="o-wrapper">
+        {% block content %}
+        {{ content | safe }}
+        {% endblock %} 
+      </div><!-- .o-wrapper -->
     </main>
 
     <aside class="o-wrapper">
