@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+
+
+<label for="takeaway-search">Filter places:</label>
+<input data-table=".listings" data-count="#count" type="text" id="takeaway-search" placeholder="e.g. Calabrisella / pizza / delivery">
+<p class="results">Results: <span id="count">{{ sheet.West.length }}</span></p>
+
+<div class="table-wrapper">
+  <table class="listings" id="listings">
+    <caption class="visually-hidden">Cardiff restaurant takeaway options during Corona lockdown</caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Tags</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in sheet.West %}
+      <tr>
+        <th scope="row">{{ item.name }}</th>
+        <td>{{ item.tags }}</td>
+        <td>{{ item.notes }}</td>
+        <td>{{ item.contact }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div><!-- .table-wrapper -->
+

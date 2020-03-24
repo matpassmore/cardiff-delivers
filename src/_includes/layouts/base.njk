@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+
+    <!-- DETECT JS -->
+    <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
+
+    {# capture the CSS content as a Nunjucks variable #}
+    {% set css %}
+      {% include "css/main.css" %}
+    {% endset %}
+
+    {# feed it through our cssmin filter to minify #}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
+  </head>
+
+  <body>
+
+    <header class="o-wrapper">
+      <h1 class="site-name"><span>Cardiff</span> Eats</h1>
+    </header>
+
+    <main class="o-wrapper">
+      {% block content %}
+      {{ content | safe }}
+      {% endblock %} 
+    </main>
+
+    <aside>
+    </aside>
+
+    <footer>
+    </footer>
+
+    <script>{% include 'js/main.js' %}</script>
+  </body>
+</html>
