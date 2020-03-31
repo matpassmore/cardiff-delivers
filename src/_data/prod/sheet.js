@@ -19,18 +19,19 @@ module.exports = () => {
         // massage the data from the Google Sheets API into
         // a shape that will more convenient for us in our SSG.
         var data = {
-          "West": []
+          "content": []
         };
         response.data.feed.entry.forEach(item => {
-          data[item.gsx$locality.$t].push({
+          data.content.push({
             "name": item.gsx$name.$t,
             "tags": item.gsx$tags.$t.toLowerCase(),
             "notes": item.gsx$notes.$t,
-            "contact": item.gsx$contact.$t
+            "contact": item.gsx$contact.$t,
+            "locality": item.gsx$locality.$t
           })
 
           // sort results by name
-          data[item.gsx$locality.$t].sort(function (x, y) {
+          data.content.sort(function (x, y) {
             let a = x.name.toUpperCase(),
               b = y.name.toUpperCase();
             return a == b ? 0 : a > b ? 1 : -1;

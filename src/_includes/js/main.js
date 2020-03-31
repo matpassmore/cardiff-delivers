@@ -20,7 +20,7 @@ var TableFilter = (function () {
 
     // Get the lines where to search
     // (the data-table attribute of the input is used to identify the table to be filtered)
-    var selector = input.getAttribute("data-table") + " tbody tr";
+    var selector = input.getAttribute("data-table") + " li";
     var rows = dquery(selector);
 
     // Searches for the requested text on all rows of the table
