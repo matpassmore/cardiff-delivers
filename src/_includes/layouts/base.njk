@@ -4,7 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+
+    <title>Cardiff Delivers | Delivery information for Cardiff's food and drink businesses, during the COVID-19 closures.</title>
+    <meta name="description" content="See how you can order from your favourite local independent businesses, via a filterable list.">
+
+    <!-- GOOGLE / SEARCH ENGINE TAGS -->
+    <meta itemprop="name" content="Cardiff Delivers | Delivery information for Cardiff's food and drink businesses, during the COVID-19 closures.">
+    <meta itemprop="description" content="See how you can order from your favourite local independent businesses, via a filterable list.">
+    <meta itemprop="image" content="/images/screenshot.png">
+
+    <!-- FACEBOOK META TAGS -->
+    <meta property="og:url" content="https://cardiffdelivers.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cardiff Delivers | Delivery information for Cardiff's food and drink businesses, during the COVID-19 closures.">
+    <meta property="og:description" content="See how you can order from your favourite local independent businesses, via a filterable list.">
+    <meta property="og:image" content="/images/screenshot.png">
+
+    <!-- TWITTER META TAGS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cardiff Delivers | Delivery information for Cardiff's food and drink businesses, during the COVID-19 closures.">
+    <meta name="twitter:description" content="See how you can order from your favourite local independent businesses, via a filterable list.">
+    <meta name="twitter:image" content="/images/screenshot.png">
 
     <!-- DETECT JS -->
     <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
@@ -12,12 +32,12 @@
 
     {# capture the CSS content as a Nunjucks variable #}
     {% set css %}
-      {% include "css/main.css" %}
+    {% include "css/main.css" %}
     {% endset %}
 
     {# feed it through our cssmin filter to minify #}
     <style>
-      {{ css | cssmin | safe }}
+{{ css | cssmin | safe }}
     </style>
   </head>
 
