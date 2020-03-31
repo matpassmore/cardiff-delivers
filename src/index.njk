@@ -3,32 +3,16 @@ layout: layouts/base.njk
 ---
 
 <div class="search">
-  <label for="search">Filter listings:</label>
+  <label for="search">Filter listings (<b class="results" id="count">{{ sheet.content.length }}</b>):</label>
   <input type="text" id="search" data-table=".listings" data-count="#count" placeholder="e.g. Calabrisella / pizza / pasta">
 </div>
-<p class="results">Results: <b id="count">{{ sheet.West.length }}</b></p>
 
-<div class="table-wrapper">
-  <table class="listings" id="listings">
-    <caption class="visually-hidden">Cardiff food and drink deliveries during the Corona lockdown</caption>
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Tags</th>
-        <th scope="col">Notes</th>
-        <th scope="col">Contact</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in sheet.West %}
-      <tr>
-        <th scope="row">{{ item.name }}</th>
-        <td>{{ item.tags }}</td>
-        <td>{{ item.notes }}</td>
-        <td>{{ item.contact }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div><!-- .table-wrapper -->
 
+
+<ul class="[ listings ] [ max-w-none ]" id="listings">
+    {% for item in sheet.content %}
+    <li class="[ listing ] [ max-w-none ]">
+      {% include('partials/listing.njk') %}
+    </li>
+    {% endfor %}
+</ul>
