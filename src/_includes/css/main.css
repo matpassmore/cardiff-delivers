@@ -73,6 +73,26 @@ body {
   text-decoration: none;
 }
 
+[href="#main"] {
+  position: absolute;
+  top: -4rem;
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+  padding: 0.75rem;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+[href="#main"]:focus {
+  top: 0;
+  outline: none;
+  color: white;
+}
+
 label {
   font-weight: 600;
 }
