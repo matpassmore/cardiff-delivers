@@ -1,56 +1,109 @@
+:root {
+  --flow-space: 1em;
+}
+
+@media screen and (min-width: 1140px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+
+/**
+ * CSS reset
+ * @link https://github.com/hankchizljaw/modern-css-reset
+ */
+
+/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  max-width: 70ch;
-  margin: 0;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
   padding: 0;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
 }
 
-*::before,
-*::after,
+/* Remove default margin */
 body,
-html,
-div,
-header,
-nav,
-main,
-section,
-article,
-table,
-caption,
-svg,
-footer {
-  max-width: none;
-}
-
-* + * {
-  margin-top: 2.25rem;
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-aside {
-  margin-top: 4.5rem;
-}
-
-h1 + *,
-h2 + *,
-h3 + *,
-h4 + * {
-  margin-top: 1rem;
-}
-
+/* Set core body defaults */
 body {
   min-height: 100vh;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  padding-bottom: 2.25rem;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/**
+ * Elements
+ */
+body {
+  padding: 2.25rem 0;
   background: #eaf6f7;
   background-image: 
     linear-gradient(rgb(234, 246, 247), rgba(234, 246, 247, 0) 300px),
@@ -61,11 +114,20 @@ body {
   line-height: 1.4;
 }
 
-[hidden] {
-  display: none;
+main {
+  margin-top: 2.25rem;
+}
+
+p {
+  max-width: 70ch;
+}
+
+h2 {
+  font-size: calc(1.2rem + 0.5vw);
 }
 
 [href] {
+  color: currentColor;
   font-weight: 600;
   text-decoration-color: #179cb0;
   text-decoration-thickness: 2px;
@@ -75,26 +137,6 @@ body {
 [href]:focus {
   color: #08798a;
   text-decoration: none;
-}
-
-[href="#main"] {
-  position: absolute;
-  top: -4rem;
-  display: block;
-  width: 100%;
-  max-width: none;
-  margin-top: 0;
-  padding: 0.75rem;
-  background-color: #000;
-  color: white;
-  text-align: center;
-  z-index: 1;
-}
-
-[href="#main"]:focus {
-  top: 0;
-  outline: none;
-  color: white;
 }
 
 label {
@@ -117,6 +159,56 @@ input[type="text"]:focus {
   outline: 5px auto;
 }
 
+aside {
+  font-size: 1rem;
+  margin-top: 4.5rem;
+}
+
+footer {
+  margin-top: 2.25rem;
+}
+
+
+/*
+ * Skip-to-content component
+ */
+[href="#main"] {
+  position: absolute;
+  top: -4rem;
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+  padding: 0.75rem;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+[href="#main"]:focus {
+  top: 0;
+  outline: none;
+  color: white;
+}
+
+
+/**
+ * Flow utility and contexts
+ */
+.o-flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
+h2 ~ h2 {
+  --flow-space: 2.25rem;
+}
+
+
+/**
+ * Wrapper utility
+ */
 .o-wrapper {
   max-width: 87.5rem; 
   margin-left: auto;
@@ -124,6 +216,10 @@ input[type="text"]:focus {
   padding: 0 4vw;
 }
 
+
+/**
+ * Site Header component
+ */
 .site-header {
   display: flex;
   flex-wrap: wrap;
@@ -133,10 +229,6 @@ input[type="text"]:focus {
 
 .site-header ul {
   margin-left: 1rem;
-}
-
-.site-header li {
-  margin-top: 0.5rem; 
 }
 
 .site-name {
@@ -149,11 +241,20 @@ input[type="text"]:focus {
   margin-top: 0.75rem;
   max-width: 40ch;
   color: #08798a;
-  font-size: 1.5rem;
+  font-size: calc(1.25rem + 0.5vw);
 }
 
 .site-name span {
   color: #179cb0;
+}
+
+.site-header nav {
+  margin-top: 2.25rem;
+}
+
+.site-nav.site-nav {
+  --flow-space: 0.5rem;
+  list-style: disc;
 }
 
 .search label {
@@ -168,15 +269,14 @@ input[type="text"]:focus {
   color: #0d6f7d;
 }
 
-.listings {
+
+/**
+ * Listings component
+ */
+.listings.listings {
   overflow: hidden;
   margin-left: -0.75rem;
   margin-right: -0.75rem;
-  list-style: none;
-}
-
-.listing {
-  margin: 0.75rem;
 }
 
 @media only screen and (min-width: 40rem) {
@@ -184,19 +284,30 @@ input[type="text"]:focus {
     display: flex;
     flex-wrap: wrap;
   }
+}
 
-  .listing {
+/**
+ * Card component
+ */
+.card {
+  margin-top: 1.5rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+@media only screen and (min-width: 40rem) {
+  .card {
     flex-basis: calc(50% - 1.5rem);
   }
 }
 
 @media only screen and (min-width: 60rem) {
-  .listing {
+  .card {
     flex-basis: calc(33% - 1.5rem);
   }
 }
 
-.listing__inner {
+.card__inner {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -207,12 +318,11 @@ input[type="text"]:focus {
   word-break: break-word;
 }
 
-.listing__name {
+.card__name {
   font-size: 1.3rem;
 }
 
-.listing__tags {
-  margin-top: 0;
+.card__tags {
   color: #08798a;
   font-size: 0.875rem;
   font-weight: 400;
@@ -220,19 +330,40 @@ input[type="text"]:focus {
   letter-spacing: 0.1em;
 }
 
-.listing__locality {
+.card__content {
+  margin-top: 2.25rem;
+}
+
+.card__locality {
   font-weight: 600;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 2px dashed #08798a;
 }
 
-.listing__contact {
-  margin-top: 1rem;
+
+/**
+ * Demands component
+ */
+.demands {
+  color: #179cb0;
+  font-family: "Playfair Display", serif;
+  font-size: 6vw;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.show-row { display: block; }
+@media only screen and (min-width: 87.5rem) {
+  .demands {
+    font-size: 5.3rem;
+  }
+}
 
+
+/**
+ * Utilities
+ */
+.show-row { display: block; }
 .hide-row { display: none; }
 
 .visually-hidden {
@@ -249,34 +380,4 @@ input[type="text"]:focus {
 
 .mt-0 {
   margin-top: 0;
-}
-
-.max-w-none {
-  max-width: none;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.rules {
-  color: #179cb0;
-  font-family: "Playfair Display", serif;
-  font-size: 6vw;
-  font-weight: 700;
-  line-height: 1;
-}
-
-@media only screen and (min-width: 87.5rem) {
-  .rules {
-    font-size: 5.3rem;
-  }
 }

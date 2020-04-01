@@ -8,11 +8,11 @@ layout: layouts/base.njk
 </div>
 
 
-<h2 class="sr-only">Listings</h2>
-<ul class="[ listings ] [ max-w-none ]" id="listings">
+<h2 class="visually-hidden">Listings</h2>
+<ul class="[ listings ] [ o-flow ] [ max-w-none ]" id="listings">
     {% for item in sheet.content %}
-    <li class="[ listing ] [ max-w-none ]">
-      {% include('partials/listing.njk') %}
+    <li class="[ card ] [ max-w-none ]">
+      {% include('partials/card.njk') %}
     </li>
     {% endfor %}
 </ul>
