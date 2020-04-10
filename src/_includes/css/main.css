@@ -227,8 +227,8 @@ h2 ~ h2 {
   align-items: flex-end;
 }
 
-.site-header ul {
-  margin-left: 1rem;
+.site-header__brand {
+  min-width: 70%;
 }
 
 .site-name {
@@ -241,20 +241,22 @@ h2 ~ h2 {
   margin-top: 0.75rem;
   max-width: 40ch;
   color: #08798a;
-  font-size: calc(1.25rem + 0.5vw);
+  font-size: calc(1rem + 0.5vw);
 }
 
 .site-name span {
   color: #179cb0;
 }
 
-.site-header nav {
+.site-nav {
+  --flow-space: 1.5rem;
   margin-top: 2.25rem;
 }
 
-.site-nav.site-nav {
+.site-nav__list.site-nav__list {
   --flow-space: 0.5rem;
   list-style: disc;
+  margin-left: 2rem;
 }
 
 .search label {
@@ -357,6 +359,30 @@ h2 ~ h2 {
   .demands {
     font-size: 5.3rem;
   }
+}
+
+
+/**
+ * Icon
+ */
+.icon {
+width: 1em;
+height: 1em;
+fill: currentColor;
+vertical-align: -0.15em;
+}
+
+
+/**
+ * Notification component
+ */
+.notification {
+  --flow-space: 0.5em;
+
+  padding: 1.75em 2em 2em;
+  border-radius: 5px;
+  border: 1px dashed #179cb0;
+  background-color: rgba(23, 153, 176,0.05);
 }
 
 
