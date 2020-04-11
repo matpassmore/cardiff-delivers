@@ -168,6 +168,10 @@ footer {
   margin-top: 2.25rem;
 }
 
+[hidden] {
+  display: none;
+}
+
 
 /*
  * Skip-to-content component
@@ -224,7 +228,7 @@ h2 ~ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .site-header__brand {
@@ -257,6 +261,22 @@ h2 ~ h2 {
   --flow-space: 0.5rem;
   list-style: disc;
   margin-left: 2rem;
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  list-style-type: none;
+}
+
+.share ul {
+  display: flex;
+}
+
+.share li {
+  margin-left: 1rem;
+  font-size: 1.5rem;
 }
 
 .search label {
@@ -366,10 +386,15 @@ h2 ~ h2 {
  * Icon
  */
 .icon {
-width: 1em;
-height: 1em;
-fill: currentColor;
-vertical-align: -0.15em;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.15em;
+}
+
+.icon--top {
+  width: 0.75em;
+  vertical-align: top;
 }
 
 
