@@ -10,6 +10,28 @@
 
 
 /**
+ * Fonts
+ *
+ * See google-webfonts-helper for help with self-hosting Google fonts:
+ * @link https://google-webfonts-helper.herokuapp.com/fonts
+ */
+
+/* playfair-display-700 - latin */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+       url('/fonts/playfair-display-v20-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/playfair-display-v20-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/playfair-display-v20-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/PlayfairDisplay-v20-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/playfair-display-v20-latin-700.svg#PlayfairDisplay') format('svg'); /* Legacy iOS */
+}
+
+
+/**
  * CSS reset
  * @link https://github.com/hankchizljaw/modern-css-reset
  */
